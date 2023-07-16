@@ -12,8 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-
-import com.zerodevs.stopwatch.Viewbinding.FragmentStopwatchBinding;
+import com.zerodevs.stopwatch.databinding.FragmentStopwatchBinding;
 
 public class StopwatchFragment extends Fragment {
 
@@ -24,17 +23,18 @@ public class StopwatchFragment extends Fragment {
         StopwatchViewModel stopwatchViewModel =
                 new ViewModelProvider(this).get(StopwatchViewModel.class);
 
-        binding = FragmentStopwatchBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
-        final TextView timer = binding.timer;
-        final TextView startbtn = binding.startbtn;
-        stopwatchViewModel.getTime().observe(getViewLifecycleOwner(),timer::setText);
-        stopwatchViewModel.getStartBtnValue().observe(getViewLifecycleOwner(),startbtn::setText);
-        Boolean started = false;
-        // on click listener
+            binding = FragmentStopwatchBinding.inflate(inflater, container, false);
+            View root = binding.getRoot();
+            final TextView timer = binding.timer;
+            final TextView startbtn = binding.startbtn;
+            stopwatchViewModel.getTime().observe(getViewLifecycleOwner(), timer::setText);
+            stopwatchViewModel.getStartBtnValue().observe(getViewLifecycleOwner(), startbtn::setText);
+            Boolean started = false;
 
-        startbtn.setOnClickListener(view -> {
-            try {
+            // on click listener
+
+            startbtn.setOnClickListener(view -> {
+
 
                 if (started) {
                     startbtn.setBackgroundColor(Color.parseColor("#FF5722"));
@@ -42,14 +42,15 @@ public class StopwatchFragment extends Fragment {
                 } else {
                     stopwatchViewModel.startStopWatch(false);
                     startbtn.setText("Start");
-                      startbtn.setBackgroundColor(Color.parseColor("#00C853"));
+                    startbtn.setBackgroundColor(Color.parseColor("#00C853"));
                 }
-            } catch(Exception e) {
-                Toast.makeText(getContext(), e.toString(), Toast.LENGTH_SHORT).show();
-            }
-        });
-        return root;
-    }
+
+            });
+
+            return root;
+
+        }
+
 
     @Override
     public void onDestroyView() {
