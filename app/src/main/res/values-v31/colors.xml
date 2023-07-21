@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="roundedback">@android:color/system_accent1_200</color>
+    <color name="textcolor">@android:color/system_accent1_600</color>
+    <color name="smalltextcolor">@android:color/system_accent1_700</color>
+</resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.StopWatch" parent="Theme.Material3.DynamicColors.DayNight">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@android:color/system_accent1_600</item>
+        <item name="colorPrimaryVariant">@android:color/system_accent1_400</item>
+        <item name="colorOnPrimary">@android:color/system_accent1_900</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@android:color/system_accent1_500</item>
+        <item name="colorSecondaryVariant">@android:color/system_accent1_600</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@android:color/system_accent1_800</item>
+
+        <!-- Customize your theme here. -->
+
+    </style>
+</resources>
