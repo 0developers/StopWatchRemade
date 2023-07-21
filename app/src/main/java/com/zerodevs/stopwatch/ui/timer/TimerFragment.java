@@ -24,8 +24,6 @@ public class TimerFragment extends Fragment {
         binding = FragmentTimerBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textNotifications;
-        timerViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 

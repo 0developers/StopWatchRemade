@@ -1,6 +1,7 @@
 package com.zerodevs.stopwatch.ui.stopwatch;
 
 import android.os.Handler;
+import android.util.Log;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -12,29 +13,45 @@ import java.util.TimerTask;
 
 public class StopwatchViewModel extends ViewModel {
 
-    private final MutableLiveData<String> start;
-    private final MutableLiveData<String> timertxt;
-    private final MutableLiveData<String> state;
-    public int hours , minutes , sec , secs;
+    public MutableLiveData<String> timertxt = new MutableLiveData<>("00:00:00");
+    public int hours, minutes, sec, secs;
+    private Boolean start;
+    Boolean hasStarted = false;
+    public MutableLiveData<Integer> state = new MutableLiveData<>(0);
+    /*
+    state :
+    0 => never started the stopwatch
+    1 => stopwatch is running
+    2 => stopwatch is paused
+    these states are for updating the views in StopwatchFragment.
+    By Zero Developer's
+     */
 
-    public StopwatchViewModel() {
-        start = new MutableLiveData<>();
-        state = new MutableLiveData<>();
-        timertxt = new MutableLiveData<>();
-        start.setValue("Start");
-        timertxt.setValue("00:00:00");
+    public void startStopWatch(Boolean started) {
+        start = started;
+        // if the boolean was false , set state to 2 (paused)
+        // note : the stopwatch set started state code is inside of the timer
+        if (!started) state.postValue(2);
+        if (!hasStarted) {
+            startTheTimer();
+            // this Boolean will prevent starting the timer over and over again
+            hasStarted = true;
+        }
+
     }
 
-    public LiveData<String> getTime() {
-        return timertxt;
+    public void resetTimer() {
+        // this function will reset the timer
+        start = false;
+        secs = 0;
+        state.postValue(0);
+        timertxt.postValue("00:00:00");
+
     }
 
-    public LiveData<String> getStartBtnValue() {
-        return start;
-    }
+    public void startTheTimer() {
 
-    public LiveData<String> startStopWatch(Boolean start) {
-
+        Log.d("StopwatchViewModel", "timer started : " + start);
 
         Timer timer = new Timer();
         final Handler handler = new Handler();
@@ -55,21 +72,24 @@ public class StopwatchViewModel extends ViewModel {
 
                                 String time = String.format(Locale.getDefault(), "%02d:%02d:%02d", hours, minutes, sec);
 
-                                timertxt.setValue(time);
-
+                                timertxt.postValue(time);
+                                // set the stopwatch is running
+                                state.postValue(1);
                             }
                         } catch (Exception e) {
-
+                            Log.d("StopwatchViewModel", "timer error : " + e.toString());
                         }
                     }
 
                 });
-            } };
+            }
 
-                return timertxt;
+        };
+        timer.schedule(TK, 1000, 1000);
 
     }
-
 }
+
+
 
 
