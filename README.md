@@ -1,5 +1,7 @@
 # Welcome to StopWatchRemade Project !
-This is the new version of StopWatch project (1.2v) <br/>
+![image](https://img.shields.io/badge/StopWatch-1.2v%20beta%20release-blue) <br/>
+This is the new version of StopWatch 
+project (1.2v) <br/>
 old project link : <a href="https://github.com/0developers/StopWatch"> Click here </a> <br/>
 note : this project is currently under development.
 
