@@ -57,27 +57,30 @@ public class TimerFragment extends Fragment {
         binding.starttimer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                long H = 0, M = 0,S = 0;
+                long H = 0, M = 0, S = 0;
                 if (timerViewModel.state.getValue() == null) return;
                 if (timerViewModel.state.getValue() == 0) {
-                    
+
                     if (binding.inputHour.getText() != null) {
                         try {
                             H = Long.parseLong(String.valueOf(binding.inputHour.getText()));
-                        } catch (Exception e) {}
+                        } catch (Exception e) {
+                        }
                     }
                     if (binding.inputMinute.getText() != null) {
                         try {
                             M = Long.parseLong(String.valueOf(binding.inputMinute.getText()));
-                        } catch (Exception e) {}
+                        } catch (Exception e) {
+                        }
                     }
                     if (binding.inputHour.getText() != null) {
                         try {
                             S = Long.parseLong(String.valueOf(binding.inputSecond.getText()));
-                        } catch (Exception e) {}
+                        } catch (Exception e) {
+                        }
                     }
-                    timerViewModel.timer(true , H , M , S);
-                } else  if (timerViewModel.state.getValue() == 1) {
+                    timerViewModel.timer(true, H, M, S);
+                } else if (timerViewModel.state.getValue() == 1) {
                     timerViewModel.pause();
                 }
             }

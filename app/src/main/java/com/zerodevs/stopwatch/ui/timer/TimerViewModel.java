@@ -30,7 +30,7 @@ public class TimerViewModel extends ViewModel {
         if (!sS.isEmpty()) S = Long.parseLong(sS);
 
 
-        CountDownTimer count = new CountDownTimer(convertToMilliseconds(H, M, S), 1000) {
+        count = new CountDownTimer(convertToMilliseconds(H, M, S), 1000) {
             @Override
             public void onTick(long  millisUntilFinished) {
                 state.postValue(1);
