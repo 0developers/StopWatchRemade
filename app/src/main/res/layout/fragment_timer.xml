@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="00:00:00"
-        android:textSize="34sp"
+        android:textSize="55sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -42,7 +42,7 @@
         android:ems="10"
         android:hint="Minute"
         android:inputType="number"
-        app:layout_constraintBottom_toBottomOf="@+id/bottomnav"
+        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,7 +57,7 @@
         android:ems="10"
         android:hint="Hour"
         android:inputType="number"
-        app:layout_constraintBottom_toBottomOf="@+id/bottomnav"
+        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.146"
         app:layout_constraintStart_toStartOf="parent"
@@ -66,16 +66,16 @@
 
     <EditText
         android:id="@+id/inputSecond"
-        android:layout_width="70dp"
+        android:layout_width="76dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="124dp"
         android:ems="10"
         android:hint="Seconds"
         android:inputType="number"
+        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.865"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/timer"
-        app:layout_constraintVertical_bias="0.213" />
+        app:layout_constraintTop_toBottomOf="@+id/timer" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
