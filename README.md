@@ -25,13 +25,14 @@ Whether you're an athlete, a student, a chef, or simply in need of a reliable ti
 
 # amazing Material 3 UI
 this app has a amazing new Material 3 UI Deisgn , very cool! <br/> <br/>
-![Screenshot_20230722-135628_StopWatch](https://github.com/0developers/StopWatchRemade/assets/115115225/fd5fd76e-2250-49ad-9223-d4165f383657) <br/> <br/>
+<image src="https://github.com/0developers/StopWatchRemade/assets/115115225/fd5fd76e-2250-49ad-9223-d4165f383657" style="width:200px;height:400px"/><br/> <br/>
 # Dynamic color
 if you have a android 12+ device , the app theme will change to your dynamic colors!<br/> <br/>
-![Screenshot_20230721-232203_StopWatch](https://github.com/0developers/StopWatchRemade/assets/115115225/49bca218-8583-46bd-a9b4-c57e8047dd31)  <br/> <br/>
+<image src="https://github.com/0developers/StopWatchRemade/assets/115115225/49bca218-8583-46bd-a9b4-c57e8047dd31" style="width:200px;height:400px"/><br/> <br/>
 # Timer Mode 
 this app also has a Timer Feature too ! <br/> <br/>
-![Screenshot_20230722-135636_StopWatch](https://github.com/0developers/StopWatchRemade/assets/115115225/2adeaec7-94c2-4f27-99b5-8de37071a90b)  <br/> <br/>
+<image src="https://github.com/0developers/StopWatchRemade/assets/115115225/2adeaec7-94c2-4f27-99b5-8de37071a90b" style="width:200px;height:400px"/>
+<br/> <br/>
 
 # Download now !
 What are you waiting for ? Download the app right now and give it a try!
