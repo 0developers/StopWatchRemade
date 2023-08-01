@@ -13,6 +13,6 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">@android:color/system_accent1_200</item>
 
-        <!-- Customize your theme here. -->
+        <!-- for android 12+ -->
     </style>
 </resources>

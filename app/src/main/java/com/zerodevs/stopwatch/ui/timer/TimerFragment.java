@@ -1,6 +1,10 @@
 package com.zerodevs.stopwatch.ui.timer;
 
+import android.content.Context;
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,11 +15,14 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.zerodevs.stopwatch.R;
 import com.zerodevs.stopwatch.databinding.FragmentTimerBinding;
 
 public class TimerFragment extends Fragment {
 
     private FragmentTimerBinding binding;
+    MediaPlayer mp;
+    CountDownTimer beepingCountdownTimer;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -50,6 +57,8 @@ public class TimerFragment extends Fragment {
                 } else if (timerViewModel.state.getValue() == 2) {
                     // timer is paused
                     binding.starttimer.setText("Start");
+                } else if (timerViewModel.state.getValue() == 3) {
+                    startBeeping();
                 }
             }
         });
@@ -58,9 +67,12 @@ public class TimerFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 long H = 0, M = 0, S = 0;
-                if (timerViewModel.state.getValue() == null) return;
+                Log.d("TimerFragment" , "starttimer button is clicked!");
+                if (timerViewModel.state.getValue() == null) {
+                    Log.d("TimerFragment", "state was null and timer didn't started");
+                    return;
+                }
                 if (timerViewModel.state.getValue() == 0) {
-
                     if (binding.inputHour.getText() != null) {
                         try {
                             H = Long.parseLong(String.valueOf(binding.inputHour.getText()));
@@ -79,13 +91,29 @@ public class TimerFragment extends Fragment {
                         } catch (Exception e) {
                         }
                     }
-                    timerViewModel.timer(true, H, M, S);
+                    timerViewModel.startTimer( H, M, S);
+                    Log.d("TimerFragment" , "timer is started Hour : " + H + " Min : " + M + " sec : " + S);
                 } else if (timerViewModel.state.getValue() == 1) {
                     timerViewModel.pause();
                 }
             }
         });
         return root;
+    }
+
+    public void startBeeping() {
+        mp = MediaPlayer.create(getActivity(), R.raw.beep);
+        beepingCountdownTimer = new CountDownTimer(5000 , 1000) {
+            @Override
+            public void onTick(long l) {
+                mp.start();
+            }
+
+            @Override
+            public void onFinish() {
+            mp.reset();
+            }
+        }.start();
     }
 
     @Override
