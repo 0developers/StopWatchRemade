@@ -36,7 +36,7 @@ this app also has a Timer Feature too ! <br/> <br/>
 
 # Download now !
 What are you waiting for ? Download the app right now and give it a try!
-<br/> <a href="">Download StopWatch App</a>
+<br/> <a href="https://github.com/0developers/StopWatchRemade/releases">Download StopWatch App</a>
 
 
 
