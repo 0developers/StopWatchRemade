@@ -33,7 +33,13 @@ if you have a android 12+ device , the app theme will change to your dynamic col
 this app also has a Timer Feature too ! <br/> <br/>
 <image src="https://github.com/0developers/StopWatchRemade/assets/115115225/2adeaec7-94c2-4f27-99b5-8de37071a90b" style="width:200px;height:400px"/>
 <br/> <br/>
+# Video
 
+
+https://github.com/0developers/StopWatchRemade/assets/115115225/0a812af1-f248-468c-b46a-c9400e058b90
+
+
+<br/><br/>
 # Download now !
 What are you waiting for ? Download the app right now and give it a try!
 <br/> <a href="https://github.com/0developers/StopWatchRemade/releases">Download StopWatch App</a>
