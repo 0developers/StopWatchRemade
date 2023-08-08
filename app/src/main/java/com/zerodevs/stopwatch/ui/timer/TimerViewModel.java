@@ -16,41 +16,45 @@ public class TimerViewModel extends ViewModel {
 
     public MutableLiveData<String> timertxt = new MutableLiveData<>("00:00:00");
     public MutableLiveData<Integer> state = new MutableLiveData<>(0);
+    public MutableLiveData<Integer> hour = new MutableLiveData<>(0);
+    public MutableLiveData<Integer> min = new MutableLiveData<>(0);
+    public MutableLiveData<Integer> sec = new MutableLiveData<>(0);
     CountDownTimer count;
     NumberFormat NF;
-    private long H, M, S, MS;
+    private long H;
+    private long M;
+    private long S;
 
-    public void startTimer(long hours, long minute, long seconds) {
-        String sH = String.valueOf(hours);
-        String sM = String.valueOf(minute);
-        String sS = String.valueOf(seconds);
+    public void startTimer(int hours, int minute, int seconds) {
 
-        if (!sH.isEmpty()) H = Long.parseLong(sH);
+         H = (long)hours;
 
-        if (!sM.isEmpty()) M = Long.parseLong(sM);
+         M = (long) minute;
 
-        if (!sS.isEmpty()) S = Long.parseLong(sS);
+         S = (long) seconds;
 
-
+        Log.d("TimerViewModel", "startTimer method .... ");
         count = new CountDownTimer(convertToMilliseconds(H, M, S), 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
                 state.postValue(1);
                 NF = new DecimalFormat("00");
                 long hours = (millisUntilFinished / 360000000) % 24;
+                hour.postValue((int) hours);
                 long minutes = (millisUntilFinished / 60000) % 60;
+                min.postValue((int) minutes);
                 long seconds = (millisUntilFinished / 1000) % 60;
-                MS = millisUntilFinished;
+                sec.postValue((int) seconds);
                 timertxt.postValue(NF.format(hours) + ":" + NF.format(minutes) + ":" + NF.format(seconds));
             }
 
             @Override
             public void onFinish() {
                 timertxt.postValue("00:00:00");
-                Log.d("TimerViewModel" , "Countdowntimer is finished.");
+                Log.d("TimerViewModel", "Countdowntimer is finished.");
                 /*
                 what this method at the bottom will do is it just changes the state value to 3
-                and then it will change back to 0 after 3 seconds .
+                and then it will change back to 0 after 5 seconds .
                 the TimerFragment class will get the state value and plays the alarm sound for 5
                  seconds .
                  */
@@ -85,6 +89,8 @@ public class TimerViewModel extends ViewModel {
 
     public void pause() {
         count.cancel();
+        count = null;
+        state.postValue(2);
     }
 
     public void postAlarm() {
@@ -103,9 +109,11 @@ public class TimerViewModel extends ViewModel {
             }
 
         };
-        timer.schedule(TK, 3000);
+        timer.schedule(TK, 5000);
 
     }
+
+
 
 
 }

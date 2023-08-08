@@ -1,16 +1,10 @@
 package com.zerodevs.stopwatch;
 
-import android.content.res.Configuration;
-import android.content.res.Resources;
-import android.graphics.Color;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
-import android.view.Window;
-import android.view.WindowManager;
 import android.util.Log;
-
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
@@ -18,10 +12,9 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.color.DynamicColors;
 import com.zerodevs.stopwatch.databinding.ActivityMainBinding;
-
-import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -39,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
            DynamicColors.applyToActivitiesIfAvailable(this.getApplication());
             Log.d("MainActivity" , "applying dynamic colors...");
         }
+
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
